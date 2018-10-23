@@ -12,16 +12,31 @@ const getProducts = async () => products;
 class App extends Component {
   state = {
     products: [],
+    loading: true,
   };
 
   async componentDidMount() {
     const prods = await getProducts();
     this.setState({
       products: prods,
+      loading: false,
     })
   };
 
+  updateProduct = (newProduct) => (
+    this.setState({
+      products: this.state.products.map((oldProduct) => {
+        if (oldProduct.id === newProduct.id) {
+          return newProduct;
+        }
+        return oldProduct;
+      }),
+    })
+  );
   render() {
+    if (this.state.loading) {
+      return <h2>Loading...</h2>
+    }
     return (
       <div className="App">
         <header className="App-header">
@@ -29,12 +44,13 @@ class App extends Component {
         </header>
 
         <Route 
-        exact
+        // exact
           path={routes.admin} 
           render={
             (renderProps) => (
               <AdminPage 
-                productList={this.state.products} {...renderProps} 
+                productList={this.state.products} 
+                updateProduct={this.updateProduct} {...renderProps} 
               />
             )}
         />
