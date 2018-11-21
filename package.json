@@ -3,11 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
+    "final-form": "^4.10.0",
+    "history-prop-types": "^2.5.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "react-final-form": "^3.6.7",
+    "react-redux": "^5.1.0",
     "react-router-dom": "^4.3.1",
     "react-router-named-routes": "0.0.23",
-    "react-scripts": "2.0.5",
+    "redux": "^4.0.1",
+    "redux-actions": "^2.6.4",
+    "redux-connect": "^8.0.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "reselect": "^4.0.0",
     "styled-components": "^4.0.2"
   },
   "scripts": {
@@ -24,5 +34,11 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "proxy": "https://perun-site-api.herokuapp.com/",
+  "devDependencies": {
+    "node-http-proxy": "^0.2.3",
+    "normalizr": "^3.3.0",
+    "react-scripts": "^2.0.5"
+  }
 }

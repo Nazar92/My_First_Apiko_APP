@@ -6,12 +6,22 @@ import { routes } from '../routes';
 
 const InputField = styled.input`
   display: block;
+  width: 400px;
 `;
 const TextArea = styled.textarea`
   display:block;
+  width: 398px;
+  height: 100px;
+`;
+// const ProductImg = styled.div`
+//   display: block;
+// `;
+const Price = styled.input`
+display: block;
 `;
 const ProductComponent = ({title, id, description, onChange, onSubmit, image, price}) => (
   <form onSubmit={onSubmit}>
+    
     <InputField 
       name="title" 
       value={title}
@@ -21,6 +31,13 @@ const ProductComponent = ({title, id, description, onChange, onSubmit, image, pr
       name="description" 
       value={description} 
       onChange={onChange('decription')} 
+    />
+    <p className="priceTitle">Price:</p>
+    <Price 
+      className="priceBody"
+      name="price" 
+      value={price}
+      onChange={onChange('price')} 
     />
     <button type="submit">Save</button>
   </form>
@@ -52,7 +69,7 @@ export class ProductConteiner extends React.Component {
       return <ProductComponent 
         {...this.state} 
         onSubmit={this.onSubmit} 
-      onChange={this.onChange}
+        onChange={this.onChange}
       />
     };
   }
